@@ -37,3 +37,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/profile-management-app/node_modules/
