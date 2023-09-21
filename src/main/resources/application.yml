@@ -1,0 +1,13 @@
+hystrix:
+  command:
+    Validation:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 1000
+            maxConcurrentRequests: 10  # Adjust as needed
+          circuitBreaker:
+            requestVolumeThreshold: 20   # Adjust as needed
+            errorThresholdPercentage: 50 # Adjust as needed
+            sleepWindowInMilliseconds: 5000  # Adjust as needed
