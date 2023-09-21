@@ -21,7 +21,7 @@ class SubscriptionService @Autowired constructor(
     }
 
     fun getSubscribedProducts(userId: String): List<String> {
-        logger.info("Fetching user with ID: $userId")
+        logger.info("Fetching subscribed products for user: $userId")
 
         val subscriptions = try {
             subscriptionRepository.getSubscriptionsForUser(userId)

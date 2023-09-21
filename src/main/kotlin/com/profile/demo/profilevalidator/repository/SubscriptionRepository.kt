@@ -18,13 +18,14 @@ class SubscriptionRepository @Autowired constructor(@Lazy private val dynamoDBMa
 
     fun getSubscriptionsForUser(userId: String): List<Subscription> {
         val queryExpression = DynamoDBQueryExpression<Subscription>()
-            .withKeyConditionExpression("userId = :userId and deleted = :deleted")
+            .withKeyConditionExpression("userId = :userId")
             .withExpressionAttributeValues(mapOf(
-                ":userId" to AttributeValue(userId),
-                ":deleted" to AttributeValue().withBOOL(false)
+                ":userId" to AttributeValue(userId)
             ))
 
-        return dynamoDBMapper.query(Subscription::class.java, queryExpression)
+        val results = dynamoDBMapper.query(Subscription::class.java, queryExpression)
+
+        return results.filter { !it.deleted }
     }
 
     fun removeSubscription(subscription: Subscription) {

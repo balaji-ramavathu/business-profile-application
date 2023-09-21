@@ -1,0 +1,3 @@
+[submodule "profile-management-app"]
+    path = profile-management-app
+    url = https://github.com/balaji-ramavathu/business-profile-application.git
