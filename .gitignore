@@ -16,6 +16,9 @@ target/
 ### Node ###
 node_modules/
 
+### Creds ###
+application.properties
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
